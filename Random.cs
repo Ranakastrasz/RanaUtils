@@ -6,21 +6,21 @@ using RanaUtils.Mathematics;
 
 using RandomExtensions;
 
-namespace RanaUtils.Random
+namespace RanaUtils
 {
-    public static class RandomUtils
+    public static class Random
     {
-        private static System.Random Instance = new();
-        static float Value => Instance.NextFloat();
+        private static System.Random s_instance = new();
+        static float Value => s_instance.NextFloat();
 
         public static void InitSeed(int seed)
         {
-            RandomUtils.Instance = new(seed);
+            s_instance = new(seed);
         }
 
         public static float Range(float minInclusive, float maxInclusive)
         { 
-            return (float)(RandomUtils.Instance.NextDouble() * (maxInclusive - minInclusive) + minInclusive);
+            return (float)(s_instance.NextDouble() * (maxInclusive - minInclusive) + minInclusive);
         }
 
         //public static Color ColorHSV()
@@ -40,7 +40,7 @@ namespace RanaUtils.Random
             return new Vector2(x, y);
         }
 
-        static Vector2 InsideRect(RectangleF rect)
+        static Vector2 InsideRect(RectangleF rect) // I suspect I will want to make my own Rectangle object instead.
         {
             float x = Range(rect.Left, rect.Right);
             float y = Range(rect.Top, rect.Bottom);
