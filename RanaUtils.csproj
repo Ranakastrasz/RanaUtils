@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IniSharpLite" Version="1.0.3" />
+    <PackageReference Include="RandomExtensions.dmanning23" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>
